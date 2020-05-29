@@ -2,12 +2,12 @@
 % Please edit documentation in R/vars-bootstrap.R
 \name{bs_vars_wells}
 \alias{bs_vars_wells}
-\title{Bootstrap CSS wells variables}
+\title{Bootstrap wells variables}
 \usage{
 bs_vars_wells(bg = NULL, border = NULL)
 }
 \arguments{
-\item{bg}{Background color (default in Shiny is grey).}
+\item{bg}{Background color (default in Shiny is gray).}
 
 \item{border}{Border color.}
 }
@@ -17,7 +17,7 @@ a \code{list} that can be used in \code{\link{create_theme}}.
 \description{
 Those variables can be used to customize
  wells panel (e.g. \code{\link[shiny:wellPanel]{shiny::wellPanel}} or
- \code{\link[shiny:sidebarPanel]{shiny::sidebarPanel}}) in Bootstrap and Bootswatch themes.
+ \code{\link[shiny:sidebarLayout]{shiny::sidebarPanel}}) in Bootstrap and Bootswatch themes.
 }
 \note{
 See default parameters for Bootstrap: \url{https://getbootstrap.com/docs/3.4/customize/}.

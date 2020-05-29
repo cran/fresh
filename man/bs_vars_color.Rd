@@ -2,23 +2,32 @@
 % Please edit documentation in R/vars-bootstrap.R
 \name{bs_vars_color}
 \alias{bs_vars_color}
-\title{Bootstrap CSS colors variables}
+\title{Bootstrap colors variables}
 \usage{
-bs_vars_color(brand_primary = NULL, brand_success = NULL,
-  brand_info = NULL, brand_warning = NULL, brand_danger = NULL,
-  gray_base = NULL, gray_darker = NULL, gray_dark = NULL,
-  gray = NULL, gray_light = NULL, gray_lighter = NULL)
+bs_vars_color(
+  brand_primary = NULL,
+  brand_success = NULL,
+  brand_info = NULL,
+  brand_warning = NULL,
+  brand_danger = NULL,
+  gray_base = NULL,
+  gray_darker = NULL,
+  gray_dark = NULL,
+  gray = NULL,
+  gray_light = NULL,
+  gray_lighter = NULL
+)
 }
 \arguments{
-\item{brand_primary}{Primary color (default in Bootstrap is blue).}
+\item{brand_primary}{Primary color, default: \Sexpr[results=rd, stage=install]{fresh:::rd_col("#337ab7")}.}
 
-\item{brand_success}{Success color (default in Bootstrap is green).}
+\item{brand_success}{Success color, default: \Sexpr[results=rd, stage=install]{fresh:::rd_col("#5cb85c")}.}
 
-\item{brand_info}{Info color (default in Bootstrap is light blue).}
+\item{brand_info}{Info color, default: \Sexpr[results=rd, stage=install]{fresh:::rd_col("#5bc0de")}.}
 
-\item{brand_warning}{Warning color (default in Bootstrap is orange).}
+\item{brand_warning}{Warning color, default: \Sexpr[results=rd, stage=install]{fresh:::rd_col("#f0ad4e")}.}
 
-\item{brand_danger}{Danger color (default in Bootstrap is red).}
+\item{brand_danger}{Danger color, default: \Sexpr[results=rd, stage=install]{fresh:::rd_col("#d9534f")}.}
 
 \item{gray_base}{Base gray color.}
 

@@ -4,44 +4,57 @@
 \alias{adminlte_color}
 \title{AdminLTE CSS colors variables}
 \usage{
-adminlte_color(light_blue = NULL, red = NULL, green = NULL,
-  aqua = NULL, yellow = NULL, blue = NULL, navy = NULL,
-  teal = NULL, olive = NULL, lime = NULL, orange = NULL,
-  fuchsia = NULL, purple = NULL, maroon = NULL, black = NULL,
-  gray_lte = NULL)
+adminlte_color(
+  light_blue = NULL,
+  red = NULL,
+  green = NULL,
+  aqua = NULL,
+  yellow = NULL,
+  blue = NULL,
+  navy = NULL,
+  teal = NULL,
+  olive = NULL,
+  lime = NULL,
+  orange = NULL,
+  fuchsia = NULL,
+  purple = NULL,
+  maroon = NULL,
+  black = NULL,
+  gray_lte = NULL
+)
 }
 \arguments{
-\item{light_blue}{Light blue (primary status), default to \code{#3c8dbc}.}
+\item{light_blue}{Light blue (primary status), default to \Sexpr[results=rd, stage=install]{fresh:::rd_col("#3c8dbc")}.}
 
-\item{red}{Red (danger status), default to \code{#dd4b39}.}
+\item{red}{Red (danger status), default to \Sexpr[results=rd, stage=install]{fresh:::rd_col("#dd4b39")}.}
 
-\item{green}{Green (success status), default to \code{#00a65a}.}
+\item{green}{Green (success status), default to \Sexpr[results=rd, stage=install]{fresh:::rd_col("#00a65a")}.}
 
-\item{aqua}{Aqua (info status), default to \code{#00c0ef}.}
+\item{aqua}{Aqua (info status), default to \Sexpr[results=rd, stage=install]{fresh:::rd_col("#00c0ef")}.}
 
-\item{yellow}{Yellow (warning status), default to \code{#f39c12}.}
+\item{yellow}{Yellow (warning status), default to \Sexpr[results=rd, stage=install]{fresh:::rd_col("#f39c12")}.}
 
-\item{blue}{Blue, default to \code{#0073b7}.}
+\item{blue}{Blue, default to \Sexpr[results=rd, stage=install]{fresh:::rd_col("#0073b7")}.}
 
-\item{navy}{Navy, default to \code{#001F3F}.}
+\item{navy}{Navy, default to \Sexpr[results=rd, stage=install]{fresh:::rd_col("#001F3F")}.}
 
-\item{teal}{Teal, default to \code{#39CCCC}.}
+\item{teal}{Teal, default to \Sexpr[results=rd, stage=install]{fresh:::rd_col("#39CCCC")}.}
 
-\item{olive}{Olive, default to \code{#3D9970}.}
+\item{olive}{Olive, default to \Sexpr[results=rd, stage=install]{fresh:::rd_col("#3D9970")}.}
 
-\item{lime}{Lime, default to \code{#01FF70}.}
+\item{lime}{Lime, default to \Sexpr[results=rd, stage=install]{fresh:::rd_col("#01FF70")}.}
 
-\item{orange}{Orange, default to \code{#FF851B}.}
+\item{orange}{Orange, default to \Sexpr[results=rd, stage=install]{fresh:::rd_col("#FF851B")}.}
 
-\item{fuchsia}{Fuchsia, default to \code{#F012BE}.}
+\item{fuchsia}{Fuchsia, default to \Sexpr[results=rd, stage=install]{fresh:::rd_col("#F012BE")}.}
 
-\item{purple}{Purple, default to \code{#605ca8}.}
+\item{purple}{Purple, default to \Sexpr[results=rd, stage=install]{fresh:::rd_col("#605ca8")}.}
 
-\item{maroon}{Maroon, default to \code{#D81B60}.}
+\item{maroon}{Maroon, default to \Sexpr[results=rd, stage=install]{fresh:::rd_col("#D81B60")}.}
 
-\item{black}{Black, default to \code{#111}.}
+\item{black}{Black, default to \Sexpr[results=rd, stage=install]{fresh:::rd_col("#111")}.}
 
-\item{gray_lte}{Gray, default to \code{#d2d6de}.}
+\item{gray_lte}{Gray, default to \Sexpr[results=rd, stage=install]{fresh:::rd_col("#d2d6de")}.}
 }
 \value{
 a \code{list} that can be used in \code{\link{create_theme}}.
@@ -67,7 +80,11 @@ if (interactive()) {
     header = dashboardHeader(title = "My dashboard"),
     sidebar = dashboardSidebar(
       sidebarMenu(
-        menuItem("Dashboard", tabName = "dashboard", icon = icon("dashboard"))
+        menuItem(
+          "Dashboard",
+          tabName = "dashboard",
+          icon = icon("dashboard")
+        )
       )
     ),
     body = dashboardBody(
@@ -88,29 +105,39 @@ if (interactive()) {
           # infoBoxes
           fluidRow(
             infoBox(
-              "Orders", uiOutput("orderNum2"), "Subtitle", icon = icon("credit-card")
+              "Orders", uiOutput("orderNum2"),
+              "Subtitle", icon = icon("credit-card")
             ),
             infoBox(
-              "Approval Rating", "60\%", icon = icon("line-chart"), color = "green",
+              "Approval Rating", "60\%",
+              icon = icon("line-chart"), color = "green",
               fill = TRUE
             ),
             infoBox(
-              "Progress", "20\%", icon = icon("users"), color = "purple"
+              "Progress", "20\%",
+               icon = icon("users"),
+               color = "purple"
             )
           ),
 
           # valueBoxes
           fluidRow(
             valueBox(
-              5846, "New Orders", icon = icon("credit-card"),
+              5846, "New Orders",
+              icon = icon("credit-card"),
               href = "http://google.com"
             ),
             valueBox(
-              tagList("60", tags$sup(style="font-size: 20px", "\%")),
-              "Approval Rating", icon = icon("line-chart"), color = "green"
+              tagList("60",
+                      tags$sup(style="font-size: 20px", "\%")),
+              "Approval Rating",
+              icon = icon("line-chart"),
+               color = "green"
             ),
             valueBox(
-              "42\%", "Progress", icon = icon("users"), color = "purple"
+              "42\%", "Progress",
+              icon = icon("users"),
+              color = "purple"
             )
 
           )

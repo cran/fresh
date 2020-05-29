@@ -1,25 +1,48 @@
 
+#' @title AdminLTE 2 custom variables
+#'
+#' @description Use any AdminLTE or Bootstrap variables to customize a \{shinydashboard\} theme.
+#'
+#' @param ... Variables to use, under the form \code{body_bg = "#FFF"} or \code{"body-bg" = "#FFF"}.
+#'
+#' @note For a full list of available variables, use \code{\link{search_vars_adminlte2}}.
+#'
+#' @return a \code{list} that can be used in \code{\link{create_theme}}.
+#' @export
+#'
+#' @examples
+#' adminlte_vars(body_bg = "#FFF")
+#'
+#' adminlte_vars("body-bg" = "#FFF")
+adminlte_vars <- function(...) {
+  vars <- list(...)
+  vars <- dropNulls(vars)
+  vars <- vars_names(vars)
+  class(vars) <- c("fresh_sass_vars", "adminlte_vars", class(vars))
+  vars
+}
+
 #' @title AdminLTE CSS colors variables
 #'
 #' @description Those variables can be used to customize
 #'  defaults colors in {shinydashboard}.
 #'
-#' @param light_blue Light blue (primary status), default to \code{#3c8dbc}.
-#' @param red Red (danger status), default to \code{#dd4b39}.
-#' @param green Green (success status), default to \code{#00a65a}.
-#' @param aqua Aqua (info status), default to \code{#00c0ef}.
-#' @param yellow Yellow (warning status), default to \code{#f39c12}.
-#' @param blue Blue, default to \code{#0073b7}.
-#' @param navy Navy, default to \code{#001F3F}.
-#' @param teal Teal, default to \code{#39CCCC}.
-#' @param olive Olive, default to \code{#3D9970}.
-#' @param lime Lime, default to \code{#01FF70}.
-#' @param orange Orange, default to \code{#FF851B}.
-#' @param fuchsia Fuchsia, default to \code{#F012BE}.
-#' @param purple Purple, default to \code{#605ca8}.
-#' @param maroon Maroon, default to \code{#D81B60}.
-#' @param black Black, default to \code{#111}.
-#' @param gray_lte Gray, default to \code{#d2d6de}.
+#' @param light_blue Light blue (primary status), default to \Sexpr[results=rd, stage=install]{fresh:::rd_col("#3c8dbc")}.
+#' @param red Red (danger status), default to \Sexpr[results=rd, stage=install]{fresh:::rd_col("#dd4b39")}.
+#' @param green Green (success status), default to \Sexpr[results=rd, stage=install]{fresh:::rd_col("#00a65a")}.
+#' @param aqua Aqua (info status), default to \Sexpr[results=rd, stage=install]{fresh:::rd_col("#00c0ef")}.
+#' @param yellow Yellow (warning status), default to \Sexpr[results=rd, stage=install]{fresh:::rd_col("#f39c12")}.
+#' @param blue Blue, default to \Sexpr[results=rd, stage=install]{fresh:::rd_col("#0073b7")}.
+#' @param navy Navy, default to \Sexpr[results=rd, stage=install]{fresh:::rd_col("#001F3F")}.
+#' @param teal Teal, default to \Sexpr[results=rd, stage=install]{fresh:::rd_col("#39CCCC")}.
+#' @param olive Olive, default to \Sexpr[results=rd, stage=install]{fresh:::rd_col("#3D9970")}.
+#' @param lime Lime, default to \Sexpr[results=rd, stage=install]{fresh:::rd_col("#01FF70")}.
+#' @param orange Orange, default to \Sexpr[results=rd, stage=install]{fresh:::rd_col("#FF851B")}.
+#' @param fuchsia Fuchsia, default to \Sexpr[results=rd, stage=install]{fresh:::rd_col("#F012BE")}.
+#' @param purple Purple, default to \Sexpr[results=rd, stage=install]{fresh:::rd_col("#605ca8")}.
+#' @param maroon Maroon, default to \Sexpr[results=rd, stage=install]{fresh:::rd_col("#D81B60")}.
+#' @param black Black, default to \Sexpr[results=rd, stage=install]{fresh:::rd_col("#111")}.
+#' @param gray_lte Gray, default to \Sexpr[results=rd, stage=install]{fresh:::rd_col("#d2d6de")}.
 #'
 #' @return a \code{list} that can be used in \code{\link{create_theme}}.
 #' @export
@@ -41,7 +64,11 @@
 #'     header = dashboardHeader(title = "My dashboard"),
 #'     sidebar = dashboardSidebar(
 #'       sidebarMenu(
-#'         menuItem("Dashboard", tabName = "dashboard", icon = icon("dashboard"))
+#'         menuItem(
+#'           "Dashboard",
+#'           tabName = "dashboard",
+#'           icon = icon("dashboard")
+#'         )
 #'       )
 #'     ),
 #'     body = dashboardBody(
@@ -62,29 +89,39 @@
 #'           # infoBoxes
 #'           fluidRow(
 #'             infoBox(
-#'               "Orders", uiOutput("orderNum2"), "Subtitle", icon = icon("credit-card")
+#'               "Orders", uiOutput("orderNum2"),
+#'               "Subtitle", icon = icon("credit-card")
 #'             ),
 #'             infoBox(
-#'               "Approval Rating", "60%", icon = icon("line-chart"), color = "green",
+#'               "Approval Rating", "60%",
+#'               icon = icon("line-chart"), color = "green",
 #'               fill = TRUE
 #'             ),
 #'             infoBox(
-#'               "Progress", "20%", icon = icon("users"), color = "purple"
+#'               "Progress", "20%",
+#'                icon = icon("users"),
+#'                color = "purple"
 #'             )
 #'           ),
 #'
 #'           # valueBoxes
 #'           fluidRow(
 #'             valueBox(
-#'               5846, "New Orders", icon = icon("credit-card"),
+#'               5846, "New Orders",
+#'               icon = icon("credit-card"),
 #'               href = "http://google.com"
 #'             ),
 #'             valueBox(
-#'               tagList("60", tags$sup(style="font-size: 20px", "%")),
-#'               "Approval Rating", icon = icon("line-chart"), color = "green"
+#'               tagList("60",
+#'                       tags$sup(style="font-size: 20px", "%")),
+#'               "Approval Rating",
+#'               icon = icon("line-chart"),
+#'                color = "green"
 #'             ),
 #'             valueBox(
-#'               "42%", "Progress", icon = icon("users"), color = "purple"
+#'               "42%", "Progress",
+#'               icon = icon("users"),
+#'               color = "purple"
 #'             )
 #'
 #'           )
@@ -215,6 +252,8 @@ adminlte_sidebar <- function(width = NULL,
 #'  global settings in {shinydashboard}.
 #'
 #' @param content_bg Background color of the body.
+#' @param box_bg Default background color for boxes.
+#' @param info_box_bg Default background color for info boxes.
 #'
 #' @return a \code{list} that can be used in \code{\link{create_theme}}.
 #' @export
@@ -243,7 +282,7 @@ adminlte_sidebar <- function(width = NULL,
 #'
 #'   shinyApp(ui, server)
 #' }
-adminlte_global <- function(content_bg = NULL) {
+adminlte_global <- function(content_bg = NULL, box_bg = NULL, info_box_bg = NULL) {
   vars <- as.list(environment())
   vars <- dropNulls(vars)
   vars <- vars_names(vars)

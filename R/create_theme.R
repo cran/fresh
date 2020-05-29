@@ -77,6 +77,8 @@ create_theme <- function(...,
     framework <- "bootstrap"
   } else if (all(is_adminlte_vars(vars))) {
     framework <- "adminlte"
+  } else if (all(is_bs4dash_vars(vars))) {
+    framework <- "bs4dash"
   } else {
     if (any(is_bootstrap_vars(vars)) & any(is_adminlte_vars(vars))) {
       stop("You cannot mix Bootstrap and AddminLTE variables", call. = FALSE)
@@ -87,22 +89,26 @@ create_theme <- function(...,
       } else if (any(is_adminlte_vars(vars))) {
         framework <- "adminlte"
         warning("Using custom variables with adminlte SCSS files", call. = FALSE)
+      } else if (any(is_bs4dash_vars(vars))) {
+        framework <- "bs4dash"
+        warning("Using custom variables with bs4dash SCSS files", call. = FALSE)
       } else {
         framework <- "bootstrap"
         warning("Using custom variables with Bootstrap SCSS files", call. = FALSE)
       }
     }
   }
-  vars <- Reduce(c, vars)
+  is_file <- is_sass_file(vars)
+  variables <- Reduce(c, vars[!is_file])
   if (identical(framework, "bootstrap")) {
     if (identical(theme, "default")) {
       input <- list(
-        vars,
+        variables,
         bootstrap_scss()
       )
     } else {
       input <- list(
-        vars,
+        variables,
         bootswatch_vars_scss(theme),
         bootstrap_scss(),
         bootswatch_scss(theme)
@@ -110,24 +116,34 @@ create_theme <- function(...,
     }
   } else if (identical(framework, "adminlte")) {
     input <- list(
-      vars,
-      adminlte_scss(),
-      adminlte_skin_scss()
+      variables,
+      adminlte2_scss(),
+      adminlte2_skin_scss()
+    )
+  } else if (identical(framework, "bs4dash")) {
+    input <- list(
+      variables,
+      adminlte3_scss()
     )
   }
+  input <- dropNulls(input)
+  if (sum(is_file) > 0) {
+    input <- c(vars[is_file], input)
+  }
   if (!is.null(output_file) && isTRUE(include_assets)) {
-    path <- normalizePath(path = output_file, mustWork = FALSE)
-    file.copy(
-      from = system.file("assets/bootstrap3/default/fonts", package = "fresh"),
-      to = dirname(path), recursive = TRUE
-    )
-    output_dir <- file.path(dirname(path), "stylesheets")
-    dir.create(path = output_dir)
-    output_file <- file.path(output_dir, basename(output_file))
-    warning(
-      "Output path has been modified to include assets: ",
-      output_file, call. = FALSE
-    )
+    warning("create_theme: argument include_assets has been deprecated in fresh 0.2.0", call. = FALSE)
+    # path <- normalizePath(path = output_file, mustWork = FALSE)
+    # file.copy(
+    #   from = system.file("assets/bootstrap-3.4.1/default/fonts", package = "fresh"),
+    #   to = dirname(path), recursive = TRUE
+    # )
+    # output_dir <- file.path(dirname(path), "stylesheets")
+    # dir.create(path = output_dir)
+    # output_file <- file.path(output_dir, basename(output_file))
+    # warning(
+    #   "Output path has been modified to include assets: ",
+    #   output_file, call. = FALSE
+    # )
   }
   sass(
     input = input,
@@ -140,7 +156,7 @@ create_theme <- function(...,
 bootstrap_scss <- function() {
   sass_file(
     input = system.file(
-      "assets/bootstrap3/default/stylesheets/_bootstrap.scss",
+      "assets/bootstrap-3.4.1/default/stylesheets/_bootstrap.scss",
       package = "fresh"
     )
   )
@@ -150,7 +166,7 @@ bootstrap_scss <- function() {
 bootswatch_vars_scss <- function(theme) {
   sass_file(
     input = system.file(
-      "assets/bootstrap3", theme, "_variables.scss",
+      "assets/bootstrap-3.4.1", theme, "_variables.scss",
       package = "fresh"
     )
   )
@@ -160,7 +176,7 @@ bootswatch_vars_scss <- function(theme) {
 bootswatch_scss <- function(theme) {
   sass_file(
     input = system.file(
-      "assets/bootstrap3", theme, "_bootswatch.scss",
+      "assets/bootstrap-3.4.1", theme, "_bootswatch.scss",
       package = "fresh"
     )
   )
@@ -168,25 +184,31 @@ bootswatch_scss <- function(theme) {
 
 
 #' @importFrom sass sass_file
-adminlte_scss <- function() {
+adminlte2_scss <- function() {
   sass_file(input = system.file(
-    "assets/adminlte/scss/AdminLTE.scss",
+    "assets/AdminLTE-2.4.10/scss/AdminLTE.scss",
     package = "fresh"
   ))
 }
 
 
 #' @importFrom sass sass_file
-adminlte_skin_scss <- function() {
+adminlte2_skin_scss <- function() {
   sass_file(input = system.file(
-    "assets/adminlte/scss/skins/_all-skins.scss",
+    "assets/AdminLTE-2.4.10/scss/skins/_all-skins.scss",
     package = "fresh"
   ))
 }
 
 
 
-
+#' @importFrom sass sass_file
+adminlte3_scss <- function() {
+  sass_file(input = system.file(
+    "assets/AdminLTE-3.0.4/AdminLTE.scss",
+    package = "fresh"
+  ))
+}
 
 
 

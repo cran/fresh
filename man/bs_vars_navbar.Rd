@@ -2,22 +2,45 @@
 % Please edit documentation in R/vars-bootstrap.R
 \name{bs_vars_navbar}
 \alias{bs_vars_navbar}
-\title{Bootstrap CSS navbar variables}
+\title{Bootstrap navbar variables}
 \usage{
-bs_vars_navbar(height = NULL, margin_bottom = NULL,
-  default_color = NULL, default_bg = NULL, default_border = NULL,
-  default_link_color = NULL, default_link_active_color = NULL,
-  default_link_active_bg = NULL, default_link_hover_color = NULL,
-  default_link_hover_bg = NULL, inverse_color = NULL,
-  inverse_bg = NULL, inverse_border = NULL,
-  inverse_link_color = NULL, inverse_link_active_color = NULL,
-  inverse_link_active_bg = NULL, inverse_link_hover_color = NULL,
-  inverse_link_hover_bg = NULL)
+bs_vars_navbar(
+  height = NULL,
+  margin_bottom = NULL,
+  border_radius = NULL,
+  padding_horizontal = NULL,
+  padding_vertical = NULL,
+  collapse_max_height = NULL,
+  default_color = NULL,
+  default_bg = NULL,
+  default_border = NULL,
+  default_link_color = NULL,
+  default_link_active_color = NULL,
+  default_link_active_bg = NULL,
+  default_link_hover_color = NULL,
+  default_link_hover_bg = NULL,
+  inverse_color = NULL,
+  inverse_bg = NULL,
+  inverse_border = NULL,
+  inverse_link_color = NULL,
+  inverse_link_active_color = NULL,
+  inverse_link_active_bg = NULL,
+  inverse_link_hover_color = NULL,
+  inverse_link_hover_bg = NULL
+)
 }
 \arguments{
 \item{height}{Height of the navbar, e.g. \code{"50px"} (the default in Bootstrap).}
 
 \item{margin_bottom}{Bottom margin of navbar.}
+
+\item{border_radius}{Radius border (rounded corner).}
+
+\item{padding_horizontal}{Horizontal padding.}
+
+\item{padding_vertical}{= Vertical padding.}
+
+\item{collapse_max_height}{Max height when collapsed.}
 
 \item{default_color}{Color of text in the navbar.}
 
@@ -35,21 +58,21 @@ bs_vars_navbar(height = NULL, margin_bottom = NULL,
 
 \item{default_link_hover_bg}{Background color of links when hovered.}
 
-\item{inverse_color}{Color of text for inversed navbar.}
+\item{inverse_color}{Color of text for inverted navbar.}
 
-\item{inverse_bg}{Background color for inversed navbar.}
+\item{inverse_bg}{Background color for inverted navbar.}
 
-\item{inverse_border}{Border color for inversed navbar.}
+\item{inverse_border}{Border color for inverted navbar.}
 
-\item{inverse_link_color}{Link color for inversed navbar.}
+\item{inverse_link_color}{Link color for inverted navbar.}
 
-\item{inverse_link_active_color}{Color for active link (selected tab) for inversed navbar.}
+\item{inverse_link_active_color}{Color for active link (selected tab) for inverted navbar.}
 
-\item{inverse_link_active_bg}{Background color for active link (selected tab) for inversed navbar.}
+\item{inverse_link_active_bg}{Background color for active link (selected tab) for inverted navbar.}
 
-\item{inverse_link_hover_color}{Color of links when hovered for inversed navbar.}
+\item{inverse_link_hover_color}{Color of links when hovered for inverted navbar.}
 
-\item{inverse_link_hover_bg}{Background color of links when hovered for inversed navbar.}
+\item{inverse_link_hover_bg}{Background color of links when hovered for inverted navbar.}
 }
 \value{
 a \code{list} that can be used in \code{\link{create_theme}}.

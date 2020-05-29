@@ -2,11 +2,18 @@
 % Please edit documentation in R/vars-bootstrap.R
 \name{bs_vars_input}
 \alias{bs_vars_input}
-\title{Bootstrap CSS input variables}
+\title{Bootstrap input variables}
 \usage{
-bs_vars_input(bg = NULL, color = NULL, border = NULL,
-  border_radius = NULL, color_placeholder = NULL,
-  group_addon_bg = NULL, border_focus = NULL)
+bs_vars_input(
+  bg = NULL,
+  color = NULL,
+  border = NULL,
+  border_radius = NULL,
+  color_placeholder = NULL,
+  group_addon_bg = NULL,
+  border_focus = NULL,
+  bg_disabled = NULL
+)
 }
 \arguments{
 \item{bg}{Background color.}
@@ -22,6 +29,8 @@ bs_vars_input(bg = NULL, color = NULL, border = NULL,
 \item{group_addon_bg}{Background color of addons.}
 
 \item{border_focus}{Color of border when focused.}
+
+\item{bg_disabled}{Background color for disabled input.}
 }
 \value{
 a \code{list} that can be used in \code{\link{create_theme}}.

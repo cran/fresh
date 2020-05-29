@@ -4,10 +4,13 @@
 \alias{use_vars_template}
 \title{Use a template to define SCSS variables}
 \usage{
-use_vars_template(output_file, theme = c("default", "cerulean", "cosmo",
-  "cyborg", "darkly", "flatly", "journal", "lumen", "paper", "readable",
-  "sandstone", "simplex", "slate", "spacelab", "superhero", "united",
-  "yeti"), open = interactive())
+use_vars_template(
+  output_file,
+  theme = c("default", "cerulean", "cosmo", "cyborg", "darkly", "flatly", "journal",
+    "lumen", "paper", "readable", "sandstone", "simplex", "slate", "spacelab",
+    "superhero", "united", "yeti"),
+  open = interactive()
+)
 }
 \arguments{
 \item{output_file}{Path where to create the template, use \code{".scss"} as file extension.}
@@ -18,24 +21,25 @@ use_vars_template(output_file, theme = c("default", "cerulean", "cosmo",
 if applicable, or via \code{utils::file.edit()} otherwise.}
 }
 \description{
-Open a SCSS template to modify variable,
- after use \link{vars_file} to import variables and create a theme.
+Open a SCSS template to modify variables,
+ after use \link{bs_vars_file} to import those variables and create a theme.
 }
 \note{
-After use \code{\link{vars_file}} to use the template.
+After use \code{\link{bs_vars_file}} to use the template.
 }
 \examples{
-\donttest{
+# For example, we use a temporary file
+custom <- tempfile(fileext = ".scss")
 
 # this will open a template
 # to modify variables of the flatly theme
 use_vars_template(
-  output_file = "custom.scss",
+  output_file = custom,
   theme = "flatly"
 )
 
-# after use vars_file() to use the template
+# after use bs_vars_file() to use the template
 
-}
-
+# clean up
+unlink(custom)
 }

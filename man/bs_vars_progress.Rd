@@ -2,11 +2,18 @@
 % Please edit documentation in R/vars-bootstrap.R
 \name{bs_vars_progress}
 \alias{bs_vars_progress}
-\title{Bootstrap CSS progress variables}
+\title{Bootstrap progress variables}
 \usage{
-bs_vars_progress(bg = NULL, bar_color = NULL, border_radius = NULL,
-  bar_bg = NULL, bar_success_bg = NULL, bar_warning_bg = NULL,
-  bar_danger_bg = NULL, bar_info_bg = NULL)
+bs_vars_progress(
+  bg = NULL,
+  bar_color = NULL,
+  border_radius = NULL,
+  bar_bg = NULL,
+  bar_success_bg = NULL,
+  bar_warning_bg = NULL,
+  bar_danger_bg = NULL,
+  bar_info_bg = NULL
+)
 }
 \arguments{
 \item{bg}{Background color of the whole progress component}

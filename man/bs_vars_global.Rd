@@ -2,12 +2,18 @@
 % Please edit documentation in R/vars-bootstrap.R
 \name{bs_vars_global}
 \alias{bs_vars_global}
-\title{Bootstrap CSS global variables}
+\title{Bootstrap global variables}
 \usage{
-bs_vars_global(body_bg = NULL, text_color = NULL, link_color = NULL,
-  link_hover_color = NULL, line_height_base = NULL,
-  grid_columns = NULL, grid_gutter_width = NULL,
-  border_radius_base = NULL)
+bs_vars_global(
+  body_bg = NULL,
+  text_color = NULL,
+  link_color = NULL,
+  link_hover_color = NULL,
+  line_height_base = NULL,
+  grid_columns = NULL,
+  grid_gutter_width = NULL,
+  border_radius_base = NULL
+)
 }
 \arguments{
 \item{body_bg}{Background color for the body.}

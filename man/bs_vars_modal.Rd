@@ -2,14 +2,23 @@
 % Please edit documentation in R/vars-bootstrap.R
 \name{bs_vars_modal}
 \alias{bs_vars_modal}
-\title{Bootstrap CSS modal variables}
+\title{Bootstrap modal variables}
 \usage{
-bs_vars_modal(md = NULL, lg = NULL, sm = NULL,
-  inner_padding = NULL, title_padding = NULL,
-  title_line_height = NULL, content_bg = NULL,
-  content_border_color = NULL, content_fallback_border_color = NULL,
-  backdrop_bg = NULL, backdrop_opacity = NULL,
-  header_border_color = NULL, footer_border_color = NULL)
+bs_vars_modal(
+  md = NULL,
+  lg = NULL,
+  sm = NULL,
+  inner_padding = NULL,
+  title_padding = NULL,
+  title_line_height = NULL,
+  content_bg = NULL,
+  content_border_color = NULL,
+  content_fallback_border_color = NULL,
+  backdrop_bg = NULL,
+  backdrop_opacity = NULL,
+  header_border_color = NULL,
+  footer_border_color = NULL
+)
 }
 \arguments{
 \item{md}{Size in pixel for medium modal, e.g. \code{modalDialog(size = "m")}.}
