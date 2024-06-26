@@ -1,4 +1,4 @@
-## ---- include = FALSE---------------------------------------------------------
+## ----include = FALSE----------------------------------------------------------
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
@@ -28,7 +28,7 @@ adminlte_global(
   info_box_bg = "#D8DEE9"
 )
 
-## ---- eval=FALSE--------------------------------------------------------------
+## ----eval=FALSE---------------------------------------------------------------
 #  library(fresh)
 #  # Create the theme
 #  mytheme <- create_theme(
